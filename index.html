@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghana Environmental Watch · prototype</title>
+<meta name="description" content="Two satellite-informed early-warning tools for Ghana: GalamseyWatch for illegal mining disturbance and FloodWatch for floods. Prototype with sample data.">
+<meta name="theme-color" content="#0a1420"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/galamsey.svg" type="image/svg+xml">
+<link rel="stylesheet" href="app/landing.css">
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <p class="eyebrow"><span></span>Prototype · all map values are sample data</p>
+  <h1>See the damage sooner.<br>Warn people earlier.</h1>
+  <p class="lead">Rivers that once fed Ghana's towns are running brown, and floods keep catching communities unprepared. Two tools turn open satellite and weather data into plain-language alerts for every district.</p>
+  <div class="tools">
+    <a class="tool g" href="galamsey/index.html"><img src="assets/galamsey.svg" alt=""><div><h2>GalamseyWatch</h2><p>Spots new land disturbance and muddy rivers, then sends each signal to a person to check.</p><b>Open the map →</b></div></a>
+    <a class="tool f" href="flood/index.html"><img src="assets/flood.svg" alt=""><div><h2>FloodWatch</h2><p>Checks each district against its own limits for rain, rivers, dams and the sea.</p><b>Open the map →</b></div></a>
+  </div>
+</div></header>
+<main class="wrap">
+  <section class="why"><h2>Why it matters</h2><div class="cards">
+    <article><b>About 60%</b><p>of Ghana's water bodies are polluted, CSIR-Water Research Institute scientists reported in 2026, with illegal mining a major contributor.</p></article>
+    <article><b>10,000+ NTU</b><p>turbidity recorded at intakes on the Pra and its tributaries, about five times what the plants are built to treat.</p></article>
+    <article><b>30,000+ people</b><p>displaced by the 2023 Akosombo and Kpong spillages in Volta, Eastern and Greater Accra, according to NADMO.</p></article>
+  </div></section>
+  <section><h2>How each tool is designed to work</h2>
+    <div class="flow"><h3 class="g">GalamseyWatch</h3><ol>
+      <li><b>Satellites look</b><span>Radar every 6 days, through cloud. Optical images about every 5 days.</span></li>
+      <li><b>AI flags change</b><span>Cleared land, new pits and muddy water, compared with the past.</span></li>
+      <li><b>People verify</b><span>An analyst checks licences, reserves and imagery. Field teams confirm.</span></li>
+      <li><b>Right people told</b><span>Agencies get detail. Communities get safe, general notices.</span></li>
+    </ol></div>
+    <div class="flow"><h3 class="f">FloodWatch</h3><ol>
+      <li><b>Forecasts arrive</b><span>River flow, rainfall, soil wetness, waves and dam notices.</span></li>
+      <li><b>Local limits applied</b><span>Each district has its own limits, tuned to past floods.</span></li>
+      <li><b>Duty officer signs off</b><span>The level is explained by its cause and reviewed.</span></li>
+      <li><b>Everyone reached</b><span>SMS, WhatsApp, voice, radio and app, through official channels.</span></li>
+    </ol></div>
+  </section>
+  <section class="honest"><h2>What is real today</h2><div class="two">
+    <div><h3>Real</h3><ul><li>Maps of all 260 districts and 16 regions</li><li>River systems, intakes and flood-prone places from public reports</li><li>The flood rule engine and the satellite screening script</li><li>Phone-friendly design that can be installed from the browser</li></ul></div>
+    <div><h3>Not real yet</h3><ul><li>Every score, alert, case and status on the maps</li><li>District limits, until calibrated with national agencies</li><li>The trained AI model, sign-in and message delivery</li></ul></div>
+  </div><p class="note">A satellite signal cannot show whether mining is legal. Official flood warnings come from NADMO, GMet and the Ghana Hydrological Authority. This prototype does not replace them.</p></section>
+</main>
+<footer class="wrap"><p>Boundaries: geoBoundaries, Ghana Statistical Service (CC BY 4.0). <a href="docs/ARCHITECTURE.md">Architecture</a> · <a href="docs/FLOOD_METHOD.md">Flood method</a> · <a href="docs/GALAMSEY_METHOD.md">Mining method</a></p></footer>
+<script>if('serviceWorker'in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{})</script>
+</body></html>

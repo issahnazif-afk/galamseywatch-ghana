@@ -1,0 +1,36 @@
+# Keeps the demo current. Written without being able to run on GitHub, so check the first run in the Actions tab.
+# FloodWatch stays on samples until you set the repository variable FLOOD_LIVE to true
+# (Settings > Secrets and variables > Actions > Variables). GalamseyWatch always stays on samples here.
+name: Refresh data
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: refresh
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r tools/requirements.txt
+      - name: Galamsey samples
+        run: python3 tools/make_sample_data.py --only galamsey
+      - name: Flood samples
+        if: ${{ vars.FLOOD_LIVE != 'true' }}
+        run: python3 tools/make_sample_data.py --only flood
+      - name: Flood open-model data
+        if: ${{ vars.FLOOD_LIVE == 'true' }}
+        run: python3 tools/fetch_flood_live.py
+      - run: python3 tools/validate_data.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data
+          git diff --cached --quiet || { git commit -m "Refresh data"; git push; }

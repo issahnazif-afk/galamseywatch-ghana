@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" data-tool="flood">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FloodWatch Ghana · prototype</title>
+  <meta name="description" content="Prototype flood early-warning map for Ghana, district by district. All values are sample data.">
+  <meta name="theme-color" content="#0a1420">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="icon" href="../assets/flood.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../vendor/maplibre-gl/maplibre-gl.css">
+  <link rel="stylesheet" href="../app/styles.css">
+</head>
+<body>
+  <div id="map" class="map" aria-label="Map of Ghana"></div>
+  <div id="ui"></div>
+  <div id="live" class="sr-only" aria-live="polite"></div>
+  <noscript><p class="noscript">FloodWatch needs JavaScript to draw the map.</p></noscript>
+  <script src="../vendor/maplibre-gl/maplibre-gl.js"></script>
+  <script type="module" src="../app/main.js"></script>
+</body>
+</html>
